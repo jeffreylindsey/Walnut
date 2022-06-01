@@ -2,7 +2,7 @@
 
 #ifdef WL_PLATFORM_WINDOWS
 
-extern Walnut::Application* Walnut::CreateApplication(int argc, char** argv);
+extern std::unique_ptr<Walnut::Application> Walnut::CreateApplication(int argc, char** argv);
 bool g_ApplicationRunning = true;
 
 namespace Walnut {
@@ -11,9 +11,8 @@ namespace Walnut {
 	{
 		while (g_ApplicationRunning)
 		{
-			Walnut::Application* app = Walnut::CreateApplication(argc, argv);
+			std::unique_ptr<Walnut::Application> app = Walnut::CreateApplication(argc, argv);
 			app->Run();
-			delete app;
 		}
 
 		return 0;

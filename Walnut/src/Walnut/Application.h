@@ -64,5 +64,5 @@ namespace Walnut {
 	};
 
 	// Implemented by CLIENT
-	Application* CreateApplication(int argc, char** argv);
+	std::unique_ptr<Application> CreateApplication(int argc, char** argv);
 }

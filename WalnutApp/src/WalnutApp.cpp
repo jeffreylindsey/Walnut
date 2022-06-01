@@ -16,14 +16,14 @@ public:
 	}
 };
 
-Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
+std::unique_ptr<Walnut::Application> Walnut::CreateApplication(int argc, char** argv)
 {
 	Walnut::ApplicationSpecification spec;
 	spec.Name = "Walnut Example";
 
-	Walnut::Application* app = new Walnut::Application(spec);
+	std::unique_ptr<Walnut::Application> app = std::make_unique<Walnut::Application>(spec);
 	app->PushLayer<ExampleLayer>();
-	app->SetMenubarCallback([app]()
+	app->SetMenubarCallback([&app]()
 	{
 		if (ImGui::BeginMenu("File"))
 		{
