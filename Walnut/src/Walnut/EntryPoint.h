@@ -25,7 +25,7 @@ namespace Walnut {
 
 #include <Windows.h>
 
-int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
+int APIENTRY WinMain(HINSTANCE, HINSTANCE, PSTR, int)
 {
 	return Walnut::Main(__argc, __argv);
 }
