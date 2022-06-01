@@ -36,10 +36,10 @@ namespace Walnut {
 		void PushLayer()
 		{
 			static_assert(std::is_base_of<Layer, T>::value, "Pushed type is not subclass of Layer!");
-			m_LayerStack.emplace_back(std::make_shared<T>())->OnAttach();
+			PushLayer(std::make_unique<T>());
 		}
 
-		void PushLayer(const std::shared_ptr<Layer>& layer) { m_LayerStack.emplace_back(layer); layer->OnAttach(); }
+		void PushLayer(std::unique_ptr<Layer> layer) { m_LayerStack.emplace_back(std::move(layer))->OnAttach(); }
 
 		void Close();
 
@@ -59,7 +59,7 @@ namespace Walnut {
 		GLFWwindow* m_WindowHandle = nullptr;
 		bool m_Running = false;
 
-		std::vector<std::shared_ptr<Layer>> m_LayerStack;
+		std::vector<std::unique_ptr<Layer>> m_LayerStack;
 		std::function<void()> m_MenubarCallback;
 	};
 
