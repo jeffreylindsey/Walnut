@@ -4,6 +4,9 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{C0FF640D-2C14-8DBE-F595-301E616989EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{03044736-9910-42aa-bc2c-2d42db4a2a76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Walnut\Application.h" />
@@ -12,6 +15,12 @@
     <ClInclude Include="src\Walnut\Layer.h" />
     <ClInclude Include="src\Walnut\Random.h" />
     <ClInclude Include="src\Walnut\Timer.h" />
+    <ClInclude Include="src\Walnut\Input\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\Input\KeyCodes.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Walnut\Application.cpp" />
@@ -20,5 +29,8 @@
     </ClCompile>
     <ClCompile Include="src\Walnut\Image.cpp" />
     <ClCompile Include="src\Walnut\Random.cpp" />
+    <ClCompile Include="src\Walnut\Input\Input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
